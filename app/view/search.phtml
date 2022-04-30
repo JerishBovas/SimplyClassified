@@ -1,0 +1,68 @@
+<?php
+    $searchItem = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        $searchItem = strtolower(get("search"));
+        $string = "";
+
+        $sql = "SELECT Id, Title, Description, Price, ImageName, CategoryId FROM Items";
+
+        require APPLICATION_PATH . DS . "model" . DS . "database.php";
+
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $istrue = false;
+                $titlestr = explode(' ', $row['Title']);
+                $descstr = explode(' ', $row['Description']);
+                foreach ($titlestr as $str){
+                    if(strtolower($str) == $searchItem){
+                        $istrue = true;
+                        break;
+                    }
+                }
+                foreach ($descstr as $str){
+                    if(strtolower($str) == $searchItem){
+                        $istrue = true;
+                        break;
+                    }
+                }
+                if($istrue){
+                    $string .= '<div style="margin:20px;padding:1vw;border-radius:5px;height:200px;clear:both" class="row bg-light">
+                            <div class="col-sm-3"><img src="assets/img/'.$row['ImageName'].'" alt="" style="width:150px"></div>
+                            <div class="col-sm-9">
+                            <h2>'.$row['Title'].'</h2>
+                            <p>'.$row['Description'].'</p>
+                            <p style="float:left">Price: $'.$row['Price'].'</p></div></div>';
+                }
+            }
+        }
+    }
+    $homeProductContent = $string;
+    
+?>
+
+<div class="container-fluid">
+    <div style="text-align: center;" class="row bg-dark text-light">
+        <h2 style="position:fixed;" class="col-sm-3">Category</h2>
+        <h2 class="col-sm-9">Search</h2>
+    </div>
+
+    <div style="min-height: 500px;" class="row bg-dark">
+        <nav class="navbar col-sm-3">
+            <ul style="position:fixed;top:120px" class="nav nav-pills flex-column" role="tablist">
+                <?php echo $categoryContent;?>
+            </ul>
+        </nav>
+        <div class="container col-sm-9 mt-4">
+            <form method="POST" id="form" action="?page=search">
+                <div class="form-group">
+                  <input type="text"
+                    class="form-control" name="search" id="search" value="<?=$searchItem?>" placeholder="Type the Keywords Here...">
+                </div>
+                <button type="submit" class="btn btn-primary float-right font-weight-bold"><i class="fas fa-search"></i> Search</button>
+            </form>
+            <section style="clear: both;" class="container jumbotron">
+                <?php echo $homeProductContent?>
+            </section>
+        </div>
+</div>

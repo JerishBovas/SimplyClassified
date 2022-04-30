@@ -1,0 +1,27 @@
+<section>
+    <div style="margin-top: 80px;" class="container jumbotron">
+        <div style="width: 400px; height: 325px;padding:20px;border-radius:5px;" class="container bg-light">
+            <form method="POST" action="">
+                <div class="form-group">
+                    <label for="username">User Name:</label>
+                    <input type="text" name="username" class="form-control" placeholder="Username" id="text" required>
+                    <span class="text-success">* Username : administrator<br>*  Password : P@ssw0rd</span>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" name="password" class="form-control" placeholder="Password" id="pwd"
+                           required>
+                    <span class="error text-danger">* <?php echo @$passwordErr;?></span>
+                </div>
+                <a href="#" style="padding: 15px;margin-top:10px;" data-toggle="popover" title="Contact Administrator"
+                   data-content="jerishbradly.bovas@georgebrown.ca sanjay.kannan@georgebrown.ca">Forgot Password?</a>
+                <button type="submit" style="float: right;" class="btn btn-primary">Log In</button>
+            </form>
+            <script>
+                $(document).ready(function () {
+                    $('[data-toggle="popover"]').popover();
+                });
+            </script>
+        </div>
+    </div>
+</section>

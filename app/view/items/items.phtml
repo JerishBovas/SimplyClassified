@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div style="text-align: center;" class="row bg-dark text-light">
+        <h2 style="position:fixed;" class="col-sm-3">Category</h2>
+        <h2 class="col-sm-9">Items</h2>
+    </div>
+
+    <div style="min-height: 500px;" class="row bg-dark">
+        <nav class="navbar col-sm-3">
+            <ul style="position:fixed;top:120px" class="nav nav-pills flex-column" role="tablist">
+                <?php echo $categoryContent;?>
+            </ul>
+        </nav>
+        <section class="container col-sm-9">
+            <?php echo $productContent?>
+        </section>
+    </div>
+    <script>
+        function bootcon(address){
+            bootbox.confirm("Are you sure want to delete this?", function(result){
+                if(result){
+                    window.location.replace(address);
+                }
+            });
+        }
+    </script>
+</div>

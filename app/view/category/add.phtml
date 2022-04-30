@@ -1,0 +1,17 @@
+<div class="container-fluid row">
+    <div style="margin-top: 20px;" class="container jumbotron col-sm-9">
+        <h3>Add Category</h3>
+        <form style="margin:auto" method="POST" action="<?=$action?>">
+            <div style="width: 600px;" class="form-group">
+                <label for="title">Category Title:</label>
+                <input type="text"
+                class="form-control" name="title" id="title" placeholder="Category Title" required>
+            </div>
+            <div style="width: 600px;" class="form-group">
+                <label for="description">Category Description:</label>
+                <textarea class="form-control" name="description" id="description" rows="3" placeholder="Write the Category Description here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Done</button>
+        </form>
+    </div>
+</div>

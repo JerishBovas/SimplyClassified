@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple classified ads website. Here you can find a variety of products for your need.">
+    <meta name="keywords" content="classified ads, classified, ad, products, categories, simply classfied, simply, classified">
+    <meta name="author" content="Jerish Bradly Bovas, Sanjay Kannan">
+    <!--Bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- BootBox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.1/bootbox.min.js" integrity="sha512-eoo3vw71DUo5NRvDXP/26LFXjSFE1n5GQ+jZJhHz+oOTR4Bwt7QBCjsgGvuVMQUMMMqeEvKrQrNEI4xQMXp3uA==" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c11ddac06e.js" crossorigin="anonymous"></script>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <title><?php echo $title?></title>
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark sticky-top">
+        <!-- Brand name-->
+        <a class="navbar-brand text-dark" href="/">Simply Classified</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link <?=$homeActive?>" href="?page=home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?=$itemActive?>" href="?page=items">Items</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                    Categories
+                </a>
+                <div class="dropdown-menu">
+                    <?php require "user_layout_model.php";?>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?=$searchActive?>" href="?page=search">Search</a>
+            </li>
+        </ul>
+        <ul class="nav nav-pills ml-auto">
+            <li class="nav-item">
+                <a href="?page=login" class="btn btn-light font-weight-bold" role="button"><i class="fas fa-power-off" aria-hidden="true"></i> Log In</a>
+            </li>
+        </ul>
+    </nav>
+
+    <?php require $content ?>
+
+    <footer style="padding-top: 12px;padding-bottom:12px;clear:both" class="container-fluid bg-secondary text-light">
+        <span>Copyright <i class="fa fa-copyright" aria-hidden="true"></i>2020 Simply Classified</span>
+    </footer>
+</body>
+</html>

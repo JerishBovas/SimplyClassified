@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div style="text-align: center;" class="row bg-dark text-light">
+        <h2 style="position:fixed;" class="col-sm-3">Category</h2>
+        <h2 class="col-sm-9">Add Item</h2>
+    </div>
+
+    <div style="min-height: 500px;" class="row bg-dark">
+        <nav class="navbar col-sm-3">
+            <ul style="position:fixed;top:120px" class="nav nav-pills flex-column" role="tablist">
+                <?php echo $categoryContent;?>
+            </ul>
+        </nav>
+        <div style="padding:5vw" class="container jumbotron col-sm-8">
+            <h2>Add an Item</h2>
+            <form style="margin:auto" method="POST" action="<?=$action?>" enctype="multipart/form-data">
+                <div style="width: 600px;" class="form-group">
+                    <label for="title">Item Title:</label>
+                    <input type="text"
+                    class="form-control" name="title" id="title" placeholder="Item Title" required>
+                </div>
+                <div style="width: 600px;" class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" name="description" id="description" rows="3" placeholder="Write the Item Description here..." required></textarea>
+                </div>
+                <div style="width: 200px;" class="form-group">
+                    <label for="">Select a Category:</label>
+                    <select class="form-control" name="category" id="category" required>
+                    <?php echo $cate_file?>
+                </select>
+                </div>
+                <div style="width: 200px;" class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text"
+                    class="form-control" name="price" id="price" placeholder="Call" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">Choose an Image:</label>
+                    <input type="file" class="form-control-file" name="image" id="image" placeholder="">
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
